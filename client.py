@@ -1,95 +1,122 @@
-# client.py
 import socket
 import threading
-import tkinter 
-from tkinter import simpledialog, scrolledtext
+import random
+import tkinter as tk
 
-class Client(threading.Thread):
-    def __init__(self, host, port):
+class Client():
+    def __init__(self, host, port, color,gui):
         self.host = host
         self.port = port
-
-        msg = tkinter.Tk()
-        msg.withdraw()
-        self.nickname = simpledialog.askstring("Nickname", "Enter your nickname!", parent=msg)
-
+        self.color = color
+        self.gui = gui
+        self.nickname = None
+        self.chat_window = None
+        self.nickname_list = []
+        
         # set up socket
+    def start_client(self, nickname):
         try:
+            self.nickname = nickname
+            print(self.nickname)
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.sock.connect((self.host, self.port))
             print(f"[*] connected to {self.host} : {self.port}")
+            self.running = True
+
+            receive_thread = threading.Thread(target=self.receive)
+            receive_thread.start()
+
+            self.chat_window = self.gui.chat_window
+            self.chat_window.root.mainloop()
         except Exception as e:
-            print(f"[!] error: {e}")
-    
-        self.gui_done = False
-        self.running = True
-
-        gui_thread = threading.Thread(target=self.gui_loop)
-        receive_thread = threading.Thread(target=self.receive)
-
-        gui_thread.start()
-        receive_thread.start()
-
-    def gui_loop(self):
-        self.win = tkinter.Tk()
-        self.win.configure(bg="lightgray")
-
-        self.chat_label = tkinter.Label(self.win, text="Chat App Kelompok 5", bg="lightgray")
-        self.chat_label.config(font=("Arial", 12))
-        self.chat_label.pack(padx=20, pady=5)
-
-        self.text_area = tkinter.scrolledtext.ScrolledText(self.win)
-        self.text_area.pack(padx=20, pady=5)
-        self.text_area.config(state='disabled')
-
-        self.msg_label = tkinter.Label(self.win, text=f"Hello {self.nickname}", bg="lightgray")
-        self.msg_label.config(font=("Arial", 12))
-        self.msg_label.pack(padx=20, pady=5)
-
-        self.input_area = tkinter.Text(self.win, height=3)
-        self.input_area.pack(padx=20, pady=5)
-
-        self.send_button = tkinter.Button(self.win, text="Send", command=self.write)
-        self.send_button.config(font=("Arial", 12))
-        self.send_button.pack(padx=20, pady=5)
-
-        self.gui_done = True
-
-        self.win.protocol("WM_DELETE_WINDOW", self.stop)
-
-        self.win.mainloop()
-
-    def write(self):
-        message = f"{self.input_area.get('1.0','end')}\n"
-        self.sock.send(message.encode('utf-8'))
-        self.input_area.delete('1.0','end')
-
-    def stop(self):
-        self.running = False
-        self.win.destroy()
-        self.sock.close()
-        exit(0)
+            print(f"[!] error start client: {e}")
+            self.running = False  
+        
 
     def receive(self):
         while self.running:
             try:
-                message = self.sock.recv(1024)
-                if message == b'login':
+                message = self.sock.recv(1024).decode('utf-8')
+                print(message)
+                message = message.split(';')
+                if message[0] == 'login':
+                    #self.sock.send(self.nickname.encode('utf-8'))
+                    for name in message[1:]:
+                        if self.nickname == name:
+                            self.nickname = self.nickname + '%'
+                        self.nickname_list.append(name)
+                    self.nickname_list.append(self.nickname)
                     self.sock.send(self.nickname.encode('utf-8'))
-                else:
-                    if self.gui_done:
-                        self.text_area.config(state='normal')
-                        self.text_area.insert('end', message.decode('utf-8'))
-                        self.text_area.yview(tkinter.END)
-                        self.text_area.config(state='disabled')
-            except ConnectionResetError:
-                break
-            except:
-                print("Error")
+                    print("mengirim nickname")   
+                    #print(self.nickname)
+                #     print(self.nickname_list)                
+                elif message[0] == 'list':
+                    #print(message)
+                    self.nickname_list = []
+                    for name in message[1:]:
+                        self.append_nickname_list(name)
+                    #print(self.nickname_list)
+                    self.update_client_list()
+                elif message[0] == 'client':
+                    #print(message)
+                    self.gui.chat_window.broadcast_new_client(message)
+                elif message[0] == 'kirim':
+                    print(message)
+                    cek = self.nickname_list.index(self.nickname)
+                    print(message[3])
+                    if message[3] == str(cek): #private message
+                        self.gui.chat_window.insert_private_message(message)
+                    elif message[1] == self.nickname:
+                        self.gui.chat_window.insert_message(message)
+                    elif message[3] == "0":
+                        self.gui.chat_window.insert_message(message)
+                    else:
+                        pass # target message is not private/all
+                elif message[0] == 'img':
+                    print(message)
+                    cek = self.nickname_list.index(self.nickname)
+                    if message[3] == "0": # ALL
+                        self.gui.chat_window.insert_image(message)
+                    elif message[3] == str(cek): # private
+                        print(f"{self.nickname} mendapatkan private")
+                        self.gui.chat_window.insert_private_image(message)
+                    elif message[1] == self.nickname: # receive private
+                        self.gui.chat_window.insert_image(message)
+                    else:
+                        pass
+            except Exception as e:
+                print(f"Error receive message: {e}")
                 self.sock.close()
                 break
 
-host = '127.0.0.1'
+    def send_message(self, message):
+        message = f"kirim;{self.nickname};{message};{self.color}" #kirim;nickname;msg;target;color
+        print(message)
+        self.sock.send(message.encode('utf-8'))
+
+    def send_img(self, img_path):
+        message = f"img;{self.nickname};{img_path};{self.color}" #img;nickname;img_path;target;color
+        self.sock.send(message.encode('utf-8'))
+
+    def stop_client(self):
+        self.running = False
+        try:
+            self.sock.shutdown(socket.SHUT_RDWR)
+            self.sock.close()
+        except Exception as e:
+            print(f"Error stopping client: {e}")
+
+    def append_nickname_list(self, name):
+        if name not in self.nickname_list:
+            self.nickname_list.append(name)
+
+    def update_client_list(self):
+        self.chat_window.listbox.delete(0, tk.END)
+        for client in self.nickname_list:
+            #print(client)
+            name = client.replace('%','')
+            self.gui.chat_window.listbox.insert(tk.END, name)
+
+host = 'localhost'
 port = 3000
 
-client = Client(host, port)
