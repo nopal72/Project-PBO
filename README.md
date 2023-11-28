@@ -19,3 +19,5 @@ https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345f
 
 #class diagram
 https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/class_diagram.jpg
+
+![image]([https://github.com/thecodebuzz/FileSizePOC/blob/master/TheCodebuzz.png](https://github.com/nopal72/Project-PBO/blob/main/Use%20Case.png)https://github.com/nopal72/Project-PBO/blob/main/Use%20Case.png?raw=true)
