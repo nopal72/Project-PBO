@@ -2,10 +2,10 @@
 ## KELOMPOK 5 - CHAT APP
 
 ## ANGGOTA KELOMPOK
-Asegaf - 5302422010
-Zakia - 5302422022
-Naufal - 5302422040
-Fausta - 5302422041
+\nMuhammad Zidqi Asegaf - 5302422010
+\nZakia Anis Murzaqoh - 5302422022
+\nNaufal Muhammad - 5302422040
+\nFausta Reyhan Favian - 5302422041
 
 ## ANGGOTA KELOMPOK
 #activity diagram
