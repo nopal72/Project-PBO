@@ -11,17 +11,16 @@
 <details><summary><h3>Screenshot 1</h3></summary>
 <div align=center>
 
-![screenshot1](screenshoots/ss1.png)
+![screenshot1](scrennshoots/ss1.png)
 </div>
 </details>
-<details>
 <details><summary><h3>Screenshot 1</h3></summary>
 <div align=center>
 
-![screenshot1](screenshots/ss2.png)
+![screenshot1](scrennshoots/ss2.png)
 </div>
 </details>
-<details>
+
 
 #activity diagram
 https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/activity_diagram%20(1).jpg
