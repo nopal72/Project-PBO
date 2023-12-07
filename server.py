@@ -1,7 +1,6 @@
 import socket
 import threading
 import time
-from PIL import Image
 import os
 import tkinter as tk
 import subprocess
@@ -85,7 +84,7 @@ class Server(threading.Thread):
     def process_image(self, message):
         try:
             with Image.open(message[2]) as img:
-                png_temp_path = os.path.join("D:/1PROGRAM/PBO/SETELAH UAS/folder latihan/latihan 4/images",
+                png_temp_path = os.path.join({path}/images",
                                              os.path.basename(message[2]).replace(os.path.splitext(message[2])[1],
                                                                                    '.png')).replace("\\", "/")
                 message = f"{message[0]};{message[1]};{png_temp_path};{message[3]};{message[4]}"
