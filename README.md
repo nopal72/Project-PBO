@@ -8,7 +8,7 @@
 4. Fausta Reyhan Favian - 5302422041
 
 ## SCREENSHOOT
-<details><summary><h3>Screenshot 1</h3></summary>
+<details><summary><h3>Screenshot 2</h3></summary>
 <div align=center>
 
 ![screenshot1](scrennshoots/ss1.png)
