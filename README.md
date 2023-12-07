@@ -1,6 +1,6 @@
 <h1 align=center>OOP'S PROJECT - CHAT APP USING TKINTER</h1>
 
-## KELOMPOK 5
+## KELOMPOK 5 Rombel 1 PTIK 2022
 ## ANGGOTA KELOMPOK
 1. Muhammad Zidqi Asegaf - 5302422010
 2. Zakia Anis Murzaqoh - 5302422022
