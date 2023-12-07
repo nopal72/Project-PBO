@@ -7,6 +7,12 @@
 3. Naufal Muhammad - 5302422040
 4. Fausta Reyhan Favian - 5302422041
 
+## FITUR
+1. Send message
+2. Send private message
+3. Send image
+4. Send private image
+
 ## SCREENSHOOT
 <details><summary><h3>Screenshot 1</h3></summary>
 <div align=center>
