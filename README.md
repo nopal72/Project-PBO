@@ -13,6 +13,17 @@
 3. Send image
 4. Send private image
 
+## HOW TO USE
+1. Pastikan python sudah terinstall modul berikut.
+   ```
+     Pillow==9.5.0
+   ```
+    #### Atau bisa juga dengan menginstall [requirement.txt](https://github.com/farrelekaputra/tugasPBO/blob/main/requirements.txt) dengan perintah 
+   Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the modules from requirements.txt
+      ```bash
+      pip install -r /path/to/requirements.txt
+      ```
+
 ## SCREENSHOOT
 <details><summary><h3>Screenshot 1</h3></summary>
 <div align=center>
