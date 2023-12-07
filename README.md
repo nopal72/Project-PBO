@@ -20,18 +20,3 @@
 ![screenshot1](scrennshoots/ss2.png)
 </div>
 </details>
-
-
-#activity diagram
-https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/activity_diagram%20(1).jpg
-
-#use case diagram
-https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/Use%20Case.png
-
-#sequene diagram
-https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/sequence%20diagram.jpg
-
-#class diagram
-https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/class_diagram.jpg
-
-![image](https://github.com/nopal72/Project-PBO/blob/main/Use%20Case.png?raw=true)
