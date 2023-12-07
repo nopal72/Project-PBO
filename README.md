@@ -1,5 +1,5 @@
 <h1 align=center>OOP'S PROJECT - CHAT APP USING TKINTER</h1>
-## KELOMPOK 5 - CHAT APP
+<h2 align=center>KELOMPOK 5 - CHAT APP</h2>
 
 ## ANGGOTA KELOMPOK
 1. Muhammad Zidqi Asegaf - 5302422010
@@ -18,5 +18,34 @@
 <div align=center>
 
 ![screenshot1](scrennshoots/ss2.png)
+</div>
+</details>
+
+## DIAGRAMS
+<details><summary><h3>USE CASE</h3></summary>
+<div align=center>
+
+![screenshot1](diagrams/Use_Case.png)
+</div>
+</details>
+
+<details><summary><h3>ACTIVITY</h3></summary>
+<div align=center>
+
+![screenshot1](diagrams/activity_diagram.jpg)
+</div>
+</details>
+
+<details><summary><h3>CLASS DIAGRAM</h3></summary>
+<div align=center>
+
+![screenshot1](diagrams/class_diagram.jpg)
+</div>
+</details>
+
+<details><summary><h3>SEQUENCE DIAGRAM</h3></summary>
+<div align=center>
+
+![screenshot1](diagrams/sequence_diagram.jpg)
 </div>
 </details>
