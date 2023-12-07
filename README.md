@@ -11,7 +11,7 @@
 <details><summary><h3>Screenshot 1</h3></summary>
 <div align=center>
 
-![screenshot1](screenshots/ss1.png)
+![screenshot1](screenshoots/ss1.png)
 </div>
 </details>
 <details>
