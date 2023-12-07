@@ -1,13 +1,21 @@
-# Project-PBO
+<h1 align=center>OOP'S PROJECT - CHAT APP USING TKINTER</h1>
 ## KELOMPOK 5 - CHAT APP
 
 ## ANGGOTA KELOMPOK
-Muhammad Zidqi Asegaf - 5302422010
-Zakia Anis Murzaqoh - 5302422022
-Naufal Muhammad - 5302422040
-Fausta Reyhan Favian - 5302422041
+1. Muhammad Zidqi Asegaf - 5302422010
+2. Zakia Anis Murzaqoh - 5302422022
+3. Naufal Muhammad - 5302422040
+4. Fausta Reyhan Favian - 5302422041
 
-## ANGGOTA KELOMPOK
+## SCREENSHOOT
+<details><summary><h3>Screenshot 1</h3></summary>
+<div align=center>
+
+![screenshot1](screenshots/Screenshot1.png)
+</div>
+</details>
+<details>
+
 #activity diagram
 https://github.com/nopal72/Project-PBO/blob/5ed553d3d1965274f9e65bf606d84b92345fd3fb/activity_diagram%20(1).jpg
 
